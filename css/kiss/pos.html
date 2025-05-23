@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pos</title>
+    <style>
+        .body {
+            /* css reset样式 */
+            margin: 0;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .inner-box {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            /* position: relative;
+            top: 10px;
+            left: 10px; */
+            margin-top: 20px;
+        }
+
+        .child-box {
+            position: relative;
+            top: 10px;
+            left: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner-box">
+            <div class="child-box">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

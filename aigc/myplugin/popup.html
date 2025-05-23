@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>背景颜色切换插件</title>
+  <style>
+    body {
+      width: 200px;
+      padding: 10px;
+      text-align: center;
+    }
+    .message {
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .color-picker {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    .toggle-button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .toggle-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">点击下方按钮更换背景</div>
+  <input type="color" class="color-picker" value="#0000ff">
+  <button class="toggle-button">切换背景颜色</button>
+  <script src="popup.js"></script>
+</body>
+</html>

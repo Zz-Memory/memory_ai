@@ -44,6 +44,6 @@
     - static 没有定位能力
     - relative 相对定位
     - absolute 绝对定位
-    - absolute 找到离它最近的position 不为static的属性定位
+    - absolute 找到离它最近的（管着它的）position 不为static的元素定位
       - 直到body为止
     - .container absolute body

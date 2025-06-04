@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 挂载点 -->
+        <table id="friends" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>家乡</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+    </div>
+    </table>
+
+    <script>
+        // 挂载点 html 由 js 动态生成
+        const oBody = document.querySelector('#friends tbody');
+        // JSON 数组
+        // DOM 编程 动态页面 数据
+        const friends = [
+            {
+                name: '王子恒',
+                hometown: '九江'
+            },
+            {
+                name: '刘红',
+                hometown: '赣州'
+            }
+        ];
+        oBody.innerHTML = friends.map(friend => `
+            <tr>
+                <td>${friend.name}</td>    
+                <td>${friend.hometown}</td>    
+            </tr>
+        `).join('');
+    </script>
+</body>
+
+</html>

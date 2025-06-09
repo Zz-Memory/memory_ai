@@ -15,7 +15,7 @@
 
 - JS 有哪些数据类型？
 - 七种
-- string、numberic、null、undefined、boolean、symbol
+- string、numeric（number、bigint）、null、undefined、boolean、symbol、object
 
 ## Symbol
 - es6 新增的一种数据类型

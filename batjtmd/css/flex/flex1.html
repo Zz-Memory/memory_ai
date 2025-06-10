@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex 弹性布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 600px;
+            height: 300px;
+        }
+
+        .left {
+            flex: 1 2 500px;
+            background-color: red;
+        }
+
+        .right {
+            flex: 2 1 400px;
+            background-color: blue;
+        }
+    </style>
+    <!-- 首先看一下关键的CSS设置：
+    
+    1. container的宽度是600px
+    2. left盒子的flex属性是 flex: 1 2 500px
+    - flex-grow: 1
+    - flex-shrink: 2
+    - flex-basis: 500px
+    3. right盒子的flex属性是 flex: 2 1 400px
+    - flex-grow: 2
+    - flex-shrink: 1
+    - flex-basis: 400px
+    计算过程：
+    
+    1. 首先计算两个盒子的flex-basis总和：500px + 400px = 900px
+    2. 由于container宽度只有600px，而子元素总宽度900px超出了容器宽度，所以会触发收缩（shrink）
+    3. 需要收缩的总宽度是：900px - 600px = 300px
+    4. 收缩计算：
+    - left收缩值：300px × (500 × 2) ÷ (500 × 2 + 400 × 1) = 214.3px
+    - right收缩值：300px × (400 × 1) ÷ (500 × 2 + 400 × 1) = 85.7px
+    所以最终的宽度是：
+    
+    - left盒子：500px - 214.3px ≈ 285.7px
+    - right盒子：400px - 85.7px ≈ 314.3px -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>

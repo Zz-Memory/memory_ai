@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        // 函数是如何区分构造还是执行的？
+        // 对象[[constructor]] [[call]]
+        // 分支选择
+        // JS 函数，可执行的对象，内部有两个方法
+        function Person(name,age) {
+            // 生成一个新的对象{}
+            // this 指向新的对象
+            this.name = name;
+            this.age = age;
+            // 对象的构造
+        }
+        // console.log(Person);
+        const haha = new Person('haha', 18);
+        console.log(haha.__proto__ == Person.prototype)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

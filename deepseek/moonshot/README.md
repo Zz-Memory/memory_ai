@@ -1,0 +1,29 @@
+# 智能前端之图片识别
+
+- StrictModel 严格模式（React18 默认启动）
+  - 执行一次，测试一次 -> 两次
+- 良好的编程风格
+  - 一个组件，如果不使用，应该将它的引用语句删除（移除不需要的代码）
+-  import.meta.env.VITE_API_KEY 环境变量
+   -  代码运行时可以和环境变量交互
+   -  把env写到代码里
+-  async await
+   -  then
+   -  异步
+   -  流程控制
+   -  await 比 then 更同步化 简单
+-  class 是 HTML 的关键字，所以React中使用className来避讳
+   -  React JSX 运行，编译后，会以原生JS来运行
+   -  className 编译后会被正确映射为 DOM 中的 class
+-  无障碍访问（语义化标签）
+   -  label htmlFor + input#id
+-  本地预览 preview
+   -  良好且必须的用户体验，实时地告知用户在发生什么
+   -  图片上传及处理挺慢的，所以需要preview预览
+   -  onChange
+      -  e.target.files[0] 拿到图片对象
+      -  FileReader 实例
+         -  readAsDataURL 方法
+            -  拿到了base64编码的数据data
+            -  base64直接作为img src
+-  静态的html -> 动态模版 ({data}) -> 状态 State 使用状态useState

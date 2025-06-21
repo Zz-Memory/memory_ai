@@ -32,7 +32,7 @@ function App() {
       return;
     }
     const endpoint = "https://api.moonshot.cn/v1/chat/completions";
-    // 获取API密钥并去除可能的引号
+    // 获取API密钥
     const apiKey = import.meta.env.VITE_API_KEY;
     const headers = {
       "Content-Type": "application/json",

@@ -44,6 +44,8 @@ function objectFactory(Constructor, ...args) {
   // 使得obj可以调用构造函数中的属性，绑定this
   var result = Constructor.apply(obj, args);
   // 如果构造函数返回了一个对象，则为该对象设置正确的原型链后返回，否则返回新创建的对象
+  // //   || null 的情况，仍然会返回object，构造函数 return 简单类型时，忽略
+  // return typeof result === "object" ? result || obj : obj;
   return typeof result === "object" && result !== null
     ? (Object.setPrototypeOf(result, Constructor.prototype), result)
     : obj;

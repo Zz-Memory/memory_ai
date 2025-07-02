@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  /* 用渐变色来代替jpg、png背景图片做背景，比单一色又更艺术 */
+  /* http请求、浏览器的下载线程 */
+  background: linear-gradient(
+    /* 渐变角度，deg 顺时针旋转的角度，180°即为从上至下 */
+    180deg,
+    /* color stop 颜色停止点：color + 颜色百分比*/
+    rgb(235, 189, 161) 0%,
+    rgb(71, 49, 32) 100%
+  );
+}

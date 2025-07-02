@@ -1,0 +1,10 @@
+#selectedImage {
+  display: none;
+}
+.input {
+  width: 200px;
+}
+
+.imgPreview {
+  max-width: 100%;
+}

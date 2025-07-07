@@ -28,6 +28,11 @@ const PictureCard = (props) => {
     });
   };
 
+  const playAudio = () => {
+    const audioEle = new Audio(audio);
+    audioEle.play();
+  }
+
   return (
     <div className="card">
       <input
@@ -39,9 +44,16 @@ const PictureCard = (props) => {
       <label htmlFor="selectedImage" className="upload">
         <img src={imgPreview} alt="preview" />
       </label>
-      <div className="word">
-        <span>{word}</span>
-      </div>
+      <div className="word">{word}</div>
+      {audio && (
+        <div className="playAudio" onClick={playAudio}>
+          <img
+            width="20px"
+            src="https://res.bearbobo.com/resource/upload/Omq2HFs8/playA-3iob5qyckpa.png"
+            alt="logo"
+          />
+        </div>
+      )}
     </div>
   );
 };

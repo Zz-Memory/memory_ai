@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PictureCard from "./components/PictureCard";
+import { generateAudio } from "./components/lib/audio";
 import "./App.css";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   "representative_word": "图片代表的英文单词", 
   "example_sentence": "结合英文单词和图片描述，给出一个简单的例句", 
   "explanation": "结合图片解释英文单词，段落以Look at...开头，将段落分句，每一句单独一行，解释的最后给一个日常生活有关的问句", 
-  "explanation_replys": ["根据explanation给出的回复1", "根据explanation给出的回复2"]
+  "explanation_replies": ["根据explanation给出的回复1", "根据explanation给出的回复2"]
   }`;
 
   // 上传图片的状态
@@ -22,7 +23,7 @@ function App() {
   const [audio, setAudio] = useState("");
   // 解释
   const [explanation, setExplanation] = useState([]);
-  const [exReply, setExReply] = useState([]);
+  const [exReply, setExpReply] = useState([]);
   // 详细内容是否展开
   const [detailExpand, setDetailExpand] = useState(false);
   // 图片预览
@@ -66,7 +67,14 @@ function App() {
     setWord(replyData.representative_word);
     setSentence(replyData.example_sentence);
     setExplanation(replyData.explanation.split("\n"));
-    setExReply(replyData.explanation_replys);
+    setExpReply(replyData.explanation_replies);
+
+    // 声明音频对象
+    // url -> audio 使得资源一直都靠大模型部署，大模型压力很大
+    // base64 资源 比较小 -> atob -> unit8Array -> blob -> URL.createObjectURL -> 临时地址 -> audio展示
+    const audioUrl = await generateAudio(replyData.example_sentence);
+    console.log(audioUrl,'app');
+    setAudio(audioUrl);
   };
 
   return (

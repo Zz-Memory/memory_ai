@@ -50,3 +50,53 @@
       - hooks
   - vue 双向绑定： <input v-model="text"/>
   - react 单向绑定： <input value={text} onChange={() => setText(text)} />
+
+
+- 本地存储
+  - 浏览器本地存储
+    - localStorage
+      - key:value 存储
+      - localStorage.setItem('key', value)
+      - localStorage.getItem('key')
+      - localStorage.removeItem('key')
+  - localStorage 与 cookie 的异同
+    - cookie
+      - http 无状态，head cookie 带上
+      - cookie 太大了，会影响http性能，所以cookie的的数据存储很少（4kb左右）
+      - cookie 前端、后端都可以设置
+    - localStorage
+      - localStorage 只在浏览器端
+        - todos 5mb 左右 IndexedDB的数据以GB来计算
+        - domain
+
+
+## 自定义hooks
+- 自己定义的
+  - use
+  - 某一项功能
+    - 简单函数的封装
+    - 响应式的状态
+    - effect
+    - todos
+- 自定义hooks
+  - 现代react app的架构一部分
+  - hooks目录
+    - 自定义hooks
+    - 框架common部分
+    - 业务定制 hooks
+  - use开头
+    - state，effect、逻辑封装复用
+    - return
+      - todos
+      - toggle
+      - addTodo
+      - deleteTodo
+    - 函数式编程思想的体现
+  - 组件更好地聚焦于模板渲染
+  - 全面hooks函数式编程
+
+
+- 两个遗憾
+  - ../../ 路径定位山路十八弯
+    - 解决：在vite中配置 alias 短路径
+  - toggle、delete 跨越组件层级有点多，useContext

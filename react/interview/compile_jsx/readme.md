@@ -1,0 +1,24 @@
+- JSX ？
+  - JSX 不能独立运行
+  - 依托于前端工程化的工具，vite
+    - jsx -> React.createElement
+  - JSX 在React环境中
+
+- babel
+  - Make JavaScript Great again!
+  - 大胆使用 JS 最新语法，不用等待
+  - es6 promise -> es8 async await
+  - let -> var
+  - () => {} -> function(){}
+
+- 编译的流程
+  - 安装一下包 `pnpm i @babel/cli @babel/core -D`
+    - @babel/cli babel的命令行工具
+    - @babel/cli babel的核心转译工程
+    - babel 负责 JS 转码
+    - `-D` 即为开发阶段的依赖，上线后是不用的
+  - ./node_modules/.bin/babel
+    - 转换的规则
+      - react -> IOS代码
+    - es6+ -> es5
+    - JSX -> React.createElement

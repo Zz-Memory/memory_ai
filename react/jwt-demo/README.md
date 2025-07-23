@@ -1,3 +1,28 @@
 # jwt 登录鉴权
 - isLogin, user 全局状态 zustand
 - mock 登录模拟
+  - Apifox api请求模拟
+  - 不用写页面，就可以发送请求
+  - curl
+
+- 会话授权
+  - 服务器知道我们是谁？
+  - http 是无状态的
+    - 1.0版本时，请求头带上一个cookie
+    - server 种下一个cookie，唯一sid值
+    - 每次请求中，从请求头的cookie中读取sid值
+    - 服务器就知道是我们了
+  - 登录和用户鉴权方案JWT（JSON Web Token）
+    - {id:112,username:"Memory",level:4...} user JSON格式的数据
+    - 一种算法，生成一个hash串
+    - token 服务器端令牌
+    - decode 解码
+      - {id:112,username:"Memory",level:4...}
+- jsonwebtoken
+  - JWT 鉴权的库
+    - sign 颁发一个token user,secret
+    - decode secret 验证token user
+      - pnpm i jsonwebtoken
+      - import jwt from 'jsonwebtoken';
+      - jwt.sign
+      - HTTP 请求头 Authorization 带上token

@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken";
 
 // 为了安全性，编码的时候加密
 // 解码的时候用于解密
-const secret = '!@$@!$#@$dasdafdsg';
+// 加盐
+const secret = "!@$@!$#@$dasdafdsg";
 // login 模拟 mock
 export default [
   {
@@ -31,38 +32,37 @@ export default [
           expiresIn: 86400, // 过期时间 秒
         }
       );
-      console.log(token,'---------------');
+      console.log(token, "---------------");
       // 生成token 颁发令牌
       return {
         code: 200,
         msg: "登录成功",
         token,
         data: {
-          username,
-          password,
+          id: "101",
+          username: "admin",
         },
       };
     },
   },
   {
     url: "/api/user",
-    method:'GET',
-    response:(req,res) => {
+    method: "GET",
+    response: (req, res) => {
       // 用户端token headers
-      const token = req.headers["authorization"];
-      try{
-        const decode = jwt.decode(token,secret);
-        console.log(decode);
+      const token = req.headers["authorization"].split(" ")[1];
+      try {
+        const decode = jwt.decode(token, secret);
         return {
           code: 0,
-          data: decode.user
-        }
-      }catch(err){
+          data: decode.user,
+        };
+      } catch (err) {
         return {
           code: 1,
-          message: 'Invalid token'+err
-        }
+          message: "Invalid token" + err,
+        };
       }
-    }
-  }
+    },
+  },
 ];

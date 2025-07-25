@@ -146,6 +146,10 @@ README.md 很重要，可以方便面试官了解项目的基本情况
     - arr.findIndex
     - str.startsWith
     - promise
+## 项目遇到过什么问题，怎么解决的
+- chat message 遇到 message 覆盖问题
+- 闭包陷阱问题
+  - 一次事件里面，两次setMessages()
 
 - 项目迭代
   - 功能由浅入深

@@ -10,7 +10,8 @@ import styles from '@/pages/Trip/trip.module.css';
 import {
     Input,
     Button,
-    Loading
+    Loading,
+    Toast
 } from 'react-vant';
 import { 
   ChatO,
@@ -40,7 +41,7 @@ const Trip = () => {
   const handleChat = async () => {
     if(text.trim() === '') {
       Toast.info({
-        messages: '内容不能为空'
+        message: '内容不能为空'
       })
       return;
     }

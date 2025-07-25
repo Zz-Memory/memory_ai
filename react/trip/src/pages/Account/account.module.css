@@ -1,0 +1,24 @@
+.container {
+  padding: 10px;
+}
+.user {
+  background-color: #fff;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.nickname {
+  font-size: 36px;
+  font-weight: 500;
+}
+.level {
+  font-size: 28px;
+  color: #999;
+  margin-top: 8px;
+}
+.slogan {
+  font-size: 24px;
+  color: #ccc;
+  margin-top: 8px;
+}

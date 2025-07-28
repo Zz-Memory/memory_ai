@@ -123,6 +123,11 @@ README.md 很重要，可以方便面试官了解项目的基本情况
 - chatbot 模块
   - llm 模块 chat 封装
   - 迭代chat，支持任意模型
+- Search
+  - 防抖
+  - api
+    - GoogleSuggest
+  - localStorage
 ## 项目亮点与难点
 - 前端智能
   - 封装一个chat函数
@@ -158,4 +163,12 @@ README.md 很重要，可以方便面试官了解项目的基本情况
   - chatbot deepseek 简单chat
   - deepseek-r1 推理模型
   - 流式输出
-  - coze
+  - 上下文 LRU
+  - coze 工作流接口调用
+
+## 通用组件开发
+- Loading
+  - 居中方案
+    - position:fixed + tlrb0 + margin auto
+  - React.memo 无状态组件，不重新渲染
+  - animation 动画

@@ -27,11 +27,11 @@ const Search = () => {
   const handleQuery = (query) => {
     // api 请求
     console.log("debounce后", query);
+    setQuery(query);
     if (query === "") {
       setSuggestList([]);
       return;
     }
-    setQuery(query);
     setSuggestList(query);
   };
 
@@ -48,7 +48,7 @@ const Search = () => {
 
   // 控制搜索建议列表的显示
   const suggestListStyle = {
-    display: query === "" ? "none" : "block",
+    display: query === '' ? "none" : "block",
   };
   return (
     <div className={styles.container}>

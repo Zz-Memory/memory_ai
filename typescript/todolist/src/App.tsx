@@ -55,7 +55,7 @@ function App() {
       <p>{user.age}</p>
       <p>{pStatus}</p>
       {/* typescript 很严格 */}
-      <HelloComponent name="Jack" age="123"></HelloComponent>
+      <HelloComponent name="Jack" age={123}></HelloComponent>
     </>
   );
 }

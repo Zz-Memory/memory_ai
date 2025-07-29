@@ -153,6 +153,15 @@ README.md 很重要，可以方便面试官了解项目的基本情况
     - arr.findIndex
     - str.startsWith
     - promise
+- 用户体验优化
+  - 搜索建议，防抖 + useMemo 性能优化
+  - 组件粒度划分
+    - React.memo + useCallback
+  - 懒加载
+  - 热门推荐 + 相关商品（产品）
+  - SPA
+  - 骨架屏（Skeleton），不用让用户等待
+  - 
 ## 项目遇到过什么问题，怎么解决的
 - chat message 遇到 message 覆盖问题
 - 闭包陷阱问题

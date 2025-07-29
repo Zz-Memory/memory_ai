@@ -1,8 +1,8 @@
 import { useState, Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
 import MainLayout from "@/components/MainLayout";
 import BlankLayout from "@/components/BlankLayout";
-import "./App.css";
 import Loading from "@/components/Loading";
 
 
@@ -12,6 +12,7 @@ const Discount = lazy(() => import("@/pages/Discount"));
 const Collection = lazy(() => import("@/pages/Collection"));
 const Trip = lazy(() => import("@/pages/Trip"));
 const Account = lazy(() => import("@/pages/Account"));
+const Detail = lazy(() => import("@/pages/Detail"));
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route element={<BlankLayout />}>
             <Route path="/search" element={<Search />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Route>
         </Routes>
       </Suspense>

@@ -4,15 +4,14 @@ import userDetailStore from "@/store/useDetailStore";
 import useTitle from "@/hooks/useTitle";
 import { Skeleton, Swiper, Image } from "react-vant";
 import styles from "./detail.module.css";
-import { ArrowLeft, Cart, ServiceO, Logistics, LikeO, Description } from "@react-vant/icons";
+import { ArrowLeft, Cart, ServiceO, Logistics, LikeO, Description, ShopO, StarO } from "@react-vant/icons";
 
 const BottomBar = memo(() => {
   return (
     <div className={styles.bottomBar}>
       <div className={styles.left}>
-        <div className={styles.price}>
           <div className={styles.iconBlock}>
-            <ServiceO />
+            <ShopO />
             <span>店铺</span>
           </div>
           <div className={styles.iconBlock}>
@@ -20,10 +19,9 @@ const BottomBar = memo(() => {
             <span>客服</span>
           </div>
           <div className={styles.iconBlock}>
-            <ServiceO />
+            <StarO />
             <span>收藏</span>
           </div>
-        </div>
       </div>
       <div className={styles.right}>
         <div className={styles.cartBtn}>加入购物车</div>

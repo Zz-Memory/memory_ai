@@ -1,5 +1,15 @@
 import Mock from "mockjs";
 
+// 每页显示10条数据
+const getImages = (page,pageSize=10) => {
+  return Array.from({length: pageSize},(_,i) => ({
+    // 索引唯一
+    id: `page${page}-${i}`,
+    height: Mock.Random.integer(300,600),
+    url: Mock.Random.image('300x400',Mock.Random.color(),'#fff','img')
+  }))
+}
+
 export default [
   {
     url: "/api/search",
@@ -78,4 +88,15 @@ export default [
       };
     },
   },
+  {
+    url: '/api/images',
+    method: 'GET',
+    response:({query}) => {
+      const page = Number(query.page) || 1;
+      return {
+        code:0,
+        data:getImages(page),
+      }
+    }
+  }
 ];

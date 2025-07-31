@@ -14,6 +14,7 @@ const Collection = lazy(() => import("@/pages/Collection"));
 const Trip = lazy(() => import("@/pages/Trip"));
 const Account = lazy(() => import("@/pages/Account"));
 const Detail = lazy(() => import("@/pages/Detail"));
+const Coze = lazy(() => import("@/pages/Coze"));
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route element={<BlankLayout />}>
             <Route path="/search" element={<Search />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/coze" element={<Coze />} ></Route>
           </Route>
         </Routes>
       </Suspense>

@@ -216,6 +216,12 @@ README.md 很重要，可以方便面试官了解项目的基本情况
       - 拿到file_id
     - workflowUrl + workflow_id + token
       - 工作流需要的参数
+- 语音输入发表文章
+  - 字节的tts
+  - onMouseDown
+  - BOM html5
+    - navigator.mediaDevices.getUserMedia({audio:true}) 获取音频流，播放
+    - 用户隐私，要授权 getLocation
 ## 项目遇到过什么问题，怎么解决的
 - chat message 遇到 message 覆盖问题
 - 闭包陷阱问题
@@ -245,3 +251,6 @@ README.md 很重要，可以方便面试官了解项目的基本情况
     - position:fixed + tlrb0 + margin auto
   - React.memo 无状态组件，不重新渲染
   - animation 动画
+
+- AI 功能
+  - 智能前端（http请求） + 工作流 + coze api + ai 全新工作链路 + 自动化Agent

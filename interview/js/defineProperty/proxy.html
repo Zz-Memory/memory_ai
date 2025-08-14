@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+
+<body>
+    <div id="container">1</div>
+    <button id="incrementBtn" type="button">点击加1</button>
+    <button id="loginBtn">登录</button>
+    <script>
+        // 缓存DOM元素
+        const dom = {
+            container: document.getElementById('container'),
+            incrementBtn: document.getElementById('incrementBtn'),
+            loginBtn: document.getElementById('loginBtn')
+        }
+        // 原始数据
+        const data = {
+            value: 1,
+            isLogin: false
+        };
+
+
+        // Proxy 代理对象
+        // 代理授权
+        // 一次性代理整个的对象
+        const reactiveData = new Proxy(data, {
+            set(target, key, value, receiver) {
+                // 更新目标对象的属性值
+                target[key] = value;
+
+                // 根据传入属性更新对应的DOM
+                console.log(`属性 ${key} 被设置为:`, value);
+                if (key == 'value') {
+                    dom.container.innerText = target[key];
+                } else if (key == 'isLogin') {
+                    if (target[key]) {
+                        dom.loginBtn.innerText = '登出';
+                    } else {
+                        dom.loginBtn.innerText = '登录';
+                    }
+                }
+
+                return true;
+            },
+            get(target, key, receiver) {
+                console.log(`读取属性 ${key}:`, target[key]);
+                return target[key];
+            }
+        });
+
+        dom.incrementBtn.onclick = function () {
+            reactiveData.value++;
+        };
+        dom.loginBtn.onclick = function () {
+            reactiveData.isLogin = !reactiveData.isLogin;
+        }
+    </script>
+</body>
+
+</html>

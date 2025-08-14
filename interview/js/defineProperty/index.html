@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式</title>
+</head>
+
+<body>
+    <div id="container">1</div>
+    <button id="button" type="button">点击加1</button>
+    <button id="loginBtn" type="button">登录</button>
+
+    <script>
+        // js DOM api
+        // 不利于业务性能不好
+        // document.getElementById('button').addEventListener('click', function () {
+        //     var container = document.getElementById('container');
+        //     // 显式类型转换
+        //     container.innerHTML = Number(container.innerHTML) + 1;
+        // })
+
+        // 响应式开发 数据状态，状态发生变化 -> 数据绑定的地方会自动更新
+        // MVVM：Model (count) View (#container) VM(JSX)
+
+        // 1.状态
+        // 定义对象来实现
+        var obj = {
+            // 监听这个状态的改变
+            _value: 1, // 数据 => 响应式？状态？
+            _isLogin: false // 数据状态
+        }
+        Object.defineProperty(obj, "value", {
+            // 定义obj上的value属性，有些什么样的操作
+            get: function () {
+                console.log('读取了value属性',this._value)
+                return this._value;
+            },
+            // 拦截
+            set: function (newValue) {
+                this._value = newValue;
+                console.log('设置了新的value属性',this._value)
+                document.getElementById('container').innerHTML = newValue;
+            }
+        })
+        document.getElementById('button').addEventListener('click', function () {
+            obj.value += 1;
+        })
+
+        Object.defineProperty(obj, "isLogin", {
+            get: function () {
+                console.log('正在读取isLogin属性',this._isLogin)
+                return this._isLogin;
+            },
+            set: function (newValue) {
+                this._isLogin = newValue;
+                console.log('正在设置isLogin属性',this._isLogin)
+            }
+        })
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            this.isLogin = !this.isLogin;
+            if(this.isLogin){
+                loginBtn.innerHTML='登出';
+            } else {
+                loginBtn.innerHTML='登录';
+            }
+        })
+    </script>
+</body>
+
+</html>

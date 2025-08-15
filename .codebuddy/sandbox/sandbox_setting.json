@@ -1,0 +1,20 @@
+{
+  "path": "d:\\Code\\Test\\AI-Learning\\html5\\drag_n_drop",
+  "desc": "这是一个HTML5拖放功能演示项目，展示了如何实现元素拖放功能和响应式设计。用户可以拖动图片到不同的容器中，并且界面会根据设备尺寸自适应布局。",
+  "id": "7538b5e890b748aeba5eb8779f8e65ee",
+  "data": {
+    "spaceKey": "7538b5e890b748aeba5eb8779f8e65ee",
+    "connections": {
+      "webIDE": "https://7538b5e890b748aeba5eb8779f8e65ee.ap-singapore.cloudstudio.club",
+      "preview": "https://7538b5e890b748aeba5eb8779f8e65ee--{port}.ap-singapore.cloudstudio.club",
+      "api": "https://7538b5e890b748aeba5eb8779f8e65ee--api.ap-singapore.cloudstudio.club",
+      "pty": "https://7538b5e890b748aeba5eb8779f8e65ee--pty.ap-singapore.cloudstudio.club"
+    }
+  },
+  "config": {
+    "api": "https://7538b5e890b748aeba5eb8779f8e65ee--api.ap-singapore.cloudstudio.club",
+    "pty": "https://7538b5e890b748aeba5eb8779f8e65ee--pty.ap-singapore.cloudstudio.club",
+    "region": "ap-shanghai",
+    "spaceKey": "7538b5e890b748aeba5eb8779f8e65ee"
+  }
+}

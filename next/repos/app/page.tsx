@@ -18,10 +18,13 @@ import {
 import {
   Input
 } from "@/components/ui/input";
+import {
+  type Todo
+} from "@/app/types/todo";
 
 export default function Home() {
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const addTodo = async () => {
     if (!newTodo.trim()){
       return ;
@@ -37,6 +40,33 @@ export default function Home() {
     })
 
     setNewTodo("");
+    fetchTodos();
+  }
+
+  const toggleTodo = async (id:number,completed:boolean) => {
+    await fetch('/api/todos',{
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id,
+        completed
+      })
+    })
+    fetchTodos();
+  }
+
+  const deleteTodo = async (id: number)=>{
+    await fetch('/api/todos',{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id
+      })
+    })
     fetchTodos();
   }
 
@@ -79,6 +109,7 @@ export default function Home() {
                   <input 
                     type="checkbox" 
                     checked={todo.completed}
+                    onChange={e => toggleTodo(todo.id,e.target.checked)}
                     className="w-4 h-4"
                   />
                   <span className={todo.completed?'line-through':''}>
@@ -88,6 +119,7 @@ export default function Home() {
                 <Button
                   variant="destructive"
                   size="sm"
+                  onClick={() => deleteTodo(todo.id)}
                 >Delete</Button>
               </div>
             ))

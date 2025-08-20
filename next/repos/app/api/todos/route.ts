@@ -3,11 +3,8 @@ import {
 } from 'next/server'; // api server
 
 // ts 是 js 的超集
-interface Todo {
-    id: number;
-    text: string;
-    completed: boolean
-}
+import {type Todo} from '@/app/types/todo';
+
 let todos: Todo[] = [
     {
         id: 1,
@@ -43,3 +40,20 @@ export async function POST(request: Request) {
     // 返回响应
     return NextResponse.json(newTodo); 
 }
+
+
+export async function PUT(request: Request){
+    const body = await request.json();
+    todos = todos.map(todo => 
+        todo.id === body.id ? {...todo, completed: body.completed} : todo
+    );
+    return NextResponse.json(todos);
+}
+
+// restful 简历
+export async function DELETE(request: Request) {
+    const body = await request.json();
+    todos = todos.filter(todo => todo.id !== body.id);
+    return NextResponse.json(todos);
+}
+

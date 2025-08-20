@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何让红绿灯停下来</title>
+</head>
+
+<body>
+    <button id="start">开始</button>
+    <button id="pause">暂停</button>
+    <div id="status"></div>
+
+    <script>
+        const seq = [
+            { color: 'red', time: 3000 },
+            { color: 'yellow', time: 1000 },
+            { color: 'green', time: 2000 },
+        ];
+        const statusBox = document.getElementById('status')
+        const startBtn = document.getElementById('start')
+        const pauseBtn = document.getElementById('pause')
+
+        const sleep = (time, signal) => new Promise((resolve, reject) => {
+            const timer = setTimeout(resolve, time);
+            signal.addEventListener('abort', () => {
+                clearTimeout(timer);
+                reject(new DOMException('Aborted', 'AbortError'));
+            }, { once: true }); // eventemitter 订阅发布者模式
+        })
+
+        let controller = null;
+        async function trafficLight(signal) {
+            while (!signal.aborted) {
+                for ({ color, time } of seq) {
+                    if (signal.aborted){
+                        return ;
+                    }
+                    statusBox.innerText = color;
+                    console.log(color);
+                    try {
+                        await sleep(time, signal);
+                    }catch(err){
+                        if (err.name === 'AbortError') {
+                            return ;
+                        }
+                        throw err;
+                    }
+                }
+            }
+        }
+        startBtn.addEventListener('click', () => {
+            if (controller && !controller.aborted) {
+                return;
+            }
+            controller = new AbortController();
+            trafficLight(controller.signal);
+        })
+
+        pauseBtn.addEventListener('click', () => {
+            if (!controller || controller.aborted) {
+                return;
+            }
+            controller.abort();
+        })
+    </script>
+</body>
+
+</html>
